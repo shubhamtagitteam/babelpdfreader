@@ -1,21 +1,23 @@
-name: Periodic Deployment
+name: Auto Push to Git every 2 minutes
+
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/2 * * * *' # Runs every 2 minutes
+
 jobs:
-  deploy:
+  auto-push:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Use Node.js 16
-        uses: actions/setup-node@v4
-        with:
-          node-version: '16'
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Push to GitHub
+      
+      - name: Set up Git
         run: |
-          git config --global user.email "incartoonbox@gmail.com"
-          git config --global user.name "Monu Banna"
-          git add .
-          git commit -m "Automated commit every 5 minutes"
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+      
+      - name: Commit and push changes
+        run: |
+          git commit -am "Auto-commit $(date +%s)"
           git push
