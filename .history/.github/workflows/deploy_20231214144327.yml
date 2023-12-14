@@ -23,7 +23,7 @@ jobs:
       - name: Push to GitHub
         run: |
           git config --global user.email "shubhamtagab@gmail.com"
-          git config --global user.name "shubhamtagitteam"
+          git config --global user.name ""
           git add .
           git commit -m "Automated commit every 5 minutes" 
           git push
