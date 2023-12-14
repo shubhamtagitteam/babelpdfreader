@@ -169,6 +169,7 @@ const PdfViewer = () => {
   return (
     <div>
       <input type="file" onChange={onFileChange} />
+gh
       {pdfText && (
         <div>
           <h2>PDF Text:</h2>
